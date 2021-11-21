@@ -1,0 +1,37 @@
+Hive commands - 
+
+--1. To calculate number of users aged above 25
+select count(*) 
+from fb 
+where age>25
+
+--2.To determine which gender has more friends
+select gender,avg(friends) 
+from fb group by gender
+
+--3.To determine if younger people recieve more likes as compared to older people
+//older people
+select avg(likes_recd)
+from fb
+where age>=35
+
+//younger people
+select avg(likes_recd)
+from fb
+where age>=13 AND age<=25
+
+--4.To determine the browsing device of choice
+//older people 
+select avg(mlikes), avg(wlikes) 
+from fb
+where age>=35
+
+//younger people
+select avg(mlikes), avg(wlikes) 
+from fb
+where age>=13 AND age<=25
+
+--5.To determine which month has most birthdays
+select month,count(*)
+from fb
+group by month
