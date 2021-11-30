@@ -26,6 +26,13 @@ function insertRecord(req, res) {
     });
 }
 router.get('/list', (req, res) => {
-    res.send("<h1>QUERY</h1>")
+    res.render("employee/submitted", {
+        viewTitle: "Query Submitted"
+    });
+});
+router.get('/trends', (req, res) => {
+    res.render("employee/trends", {
+        viewTitle: "Existing Trends"
+    });
 });
 module.exports = router;
