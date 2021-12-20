@@ -2,7 +2,7 @@ require('./models/db');
 
 const express = require('express');
 const path = require('path');
-const exphbs = require('express-handlebars');
+const {engine} = require('express-handlebars');
 const bodyparser = require('body-parser');
 
 const employeeController = require('./controllers/employeeController');
@@ -15,7 +15,7 @@ app.use(bodyparser.urlencoded({
 }));
 app.use(bodyparser.json());
 app.set('views', path.join(__dirname, '/views/'));
-app.engine('hbs', exphbs({ extname: 'hbs', defaultLayout: 'mainLayout', layoutsDir: __dirname + '/views/layouts/' }));
+app.engine('hbs', engine({ extname: 'hbs', defaultLayout: 'mainLayout', layoutsDir: __dirname + '/views/layouts/' }));
 app.set('view engine', 'hbs');
 
 
